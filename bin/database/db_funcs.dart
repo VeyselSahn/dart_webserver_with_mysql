@@ -23,8 +23,6 @@ class DbFuncs {
     try {
       var conn = await connect();
       var result = await conn.execute(query, params);
-      print('rows: ' + result.rows.toString());
-      print('affected: ' + result.affectedRows.toString());
       return willReturn! ? result.rows.toList() : result.affectedRows.toInt();
     } catch (e) {
       throw Exception(e);
